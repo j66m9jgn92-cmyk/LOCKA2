@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #F5F8FF;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: white;
+        padding: 35px;
+        border-radius: 18px;
+        box-shadow: 0 5px 20px rgba(46, 91, 154, 0.15);
+    }
+
+    h1 {
+        color: #2E5B9A;
+        text-align: center;
+    }
+
+    p {
+        color: #5B8FD9;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    label {
+        display: block;
+        color: #2E5B9A;
+        font-weight: bold;
+        margin-top: 18px;
+        margin-bottom: 8px;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #A7C8F0;
+        border-radius: 10px;
+        font-size: 15px;
+        background-color: #F5F8FF;
+    }
+
+    textarea {
+        height: 120px;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 25px;
+        padding: 14px;
+        background-color: #2E5B9A;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #5B8FD9;
+    }
+.logo {
+    text-align: center;
+    color: #2E5B9A;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    direction: ltr;
+}
+
+.logo span {
+    margin-left: 8px;
+}  
+ .file-upload {
+    display: block;
+    text-align: center;
+    background-color: #F5F8FF;
+    border: 1px dashed #A7C8F0;
+    padding: 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #2E5B9A;
+}
+
+.file-upload input {
+    display: none;
+} 
+</style>
+
+</head>
+<body>
+<div class="container">
+<div class="logo">
+     <span>LOCKA</span>
+</div>    
+    <h1>الإبلاغ عن عطل أو مشكلة</h1>
+    <p>ساعدنا في خدمتك بشكل أفضل</p>
+
+    <form>
+        <label>رقم اللوكر</label>
+        <input type="text" id="lockerNumber" placeholder="أدخل رقم اللوكر" required>
+        <label>نوع المشكلة</label>
+        <select>
+            <option>اختر نوع المشكلة</option>
+            <option>اللوكر لا يفتح</option>
+            <option>مشكلة في القفل</option>
+            <option>مشكلة في الحجز</option>
+            <option>مشكلة أخرى</option>
+        </select>
+
+        <label>وصف المشكلة</label>
+        <textarea id="problemDescription" placeholder="اكتب تفاصيل المشكلة هنا" required></textarea>
+
+        <label>إرفاق صورة للمشكلة</label>
+        <label class="file-upload">
+    📎 اختيار صورة
+    <input type="file" accept="image/*">
+</label>
+
+       <button type="button" onclick="showMessage()">إرسال البلاغ</button>
+
+<p id="successMessage" style="display:none;">
+    تم إرسال البلاغ بنجاح ✓
+</p>
+    </form>
+</div> 
+<script>
+    function showMessage() {
+        var locker = document.getElementById("lockerNumber").value;
+        var description = document.getElementById("problemDescription").value;
+
+        if (locker == "" || description == "") {
+            alert("يرجى تعبئة رقم اللوكر ووصف المشكلة");
+        } else {
+            document.getElementById("successMessage").style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>
