@@ -21,7 +21,6 @@
         direction: rtl;
     }
 
-    /* الشريط العلوي */
     .top-bar {
         width: 100%;
         height: 90px;
@@ -34,14 +33,12 @@
         box-shadow: 0 2px 10px rgba(46, 91, 154, 0.08);
     }
 
-    /* الثلاث خطوط */
     .menu-btn {
         font-size: 34px;
         color: #2E5B9A;
         cursor: pointer;
     }
 
-    /* اللوقو يمين */
     .top-logo {
         height: 72px;
         display: flex;
@@ -56,7 +53,6 @@
         display: block;
     }
 
-    /* القائمة الجانبية */
     .side-menu {
         position: fixed;
         top: 0;
@@ -87,19 +83,15 @@
         cursor: pointer;
     }
 
-    /* عناصر القائمة */
     .menu-item {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
         gap: 14px;
-
         padding: 23px 28px;
-
         text-decoration: none;
         color: #2E5B9A;
-
         font-size: 21px;
         border-bottom: 1px solid #EEF3FA;
     }
@@ -124,7 +116,6 @@
         font-weight: bold;
     }
 
-    /* نموذج البلاغ */
     .container {
         width: 90%;
         max-width: 650px;
@@ -186,7 +177,7 @@
         display: none;
     }
 
-    button {
+    .send-button {
         width: 100%;
         margin-top: 25px;
         padding: 14px;
@@ -199,8 +190,30 @@
         cursor: pointer;
     }
 
-    button:hover {
+    .send-button:hover {
         background-color: #5B8FD9;
+    }
+
+    .back-button {
+        width: 100%;
+        margin-top: 12px;
+        padding: 14px;
+        background-color: white;
+        color: #2E5B9A;
+        border: 1px solid #2E5B9A;
+        border-radius: 10px;
+        font-size: 17px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .back-button i {
+        color: #2E5B9A;
+        margin-right: 8px;
+    }
+
+    .back-button:hover {
+        background-color: #F5F8FF;
     }
 
     #successMessage {
@@ -212,27 +225,22 @@
     }
 
 </style>
-
 </head>
 
 <body>
 
-<!-- الشريط العلوي -->
 <div class="top-bar">
 
-    <!-- الثلاث خطوط يسار -->
     <div class="menu-btn" onclick="openMenu()">
         <i class="bi bi-list"></i>
     </div>
 
-    <!-- اللوقو يمين -->
     <div class="top-logo">
         <img src="logo.jpeg" alt="LOCKA Logo">
     </div>
 
 </div>
 
-<!-- القائمة -->
 <div id="sideMenu" class="side-menu">
 
     <div class="menu-top">
@@ -268,7 +276,6 @@
 
 </div>
 
-<!-- نموذج البلاغ -->
 <div class="container">
 
     <h1>الإبلاغ عن عطل أو مشكلة</h1>
@@ -279,12 +286,12 @@
 
     <form>
 
-        <label>رقم الخزانة</label>
+        <label>رقم اللوكر</label>
 
         <input
             type="text"
             id="lockerNumber"
-            placeholder="أدخل رقم الخزانة"
+            placeholder="أدخل رقم اللوكر"
             required
         >
 
@@ -292,7 +299,7 @@
 
         <select>
             <option>اختر نوع المشكلة</option>
-            <option>الخزانة لا تفتح</option>
+            <option>اللوكر لا يفتح</option>
             <option>مشكلة في القفل</option>
             <option>مشكلة في الحجز</option>
             <option>مشكلة أخرى</option>
@@ -314,8 +321,19 @@
             <input type="file" accept="image/*">
         </label>
 
-        <button type="button" onclick="showMessage()">
+        <button
+            type="button"
+            class="send-button"
+            onclick="showMessage()">
             إرسال البلاغ
+        </button>
+
+        <button
+            type="button"
+            class="back-button"
+            onclick="goBack()">
+            العودة للملف الشخصي
+          
         </button>
 
         <p id="successMessage">
@@ -353,6 +371,10 @@
             document.getElementById("successMessage").style.display = "block";
 
         }
+    }
+
+    function goBack() {
+        window.history.back();
     }
 
 </script>
